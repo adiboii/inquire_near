@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inquire_near/themes/app_color.dart';
+import 'package:inquire_near/components/custom_button.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -47,57 +48,12 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 20),
             Column(
               children: [
-                Center(
-                  child: SizedBox(
-                    width: 300,
-                    height: 55,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/sign_up');
-                      },
-                      style: ButtonStyle(
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                        ),
-                      ),
-                      child: Text(
-                        "Create Account",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                    ),
-                  ),
+                ButtonFill(
+                  label: "Create Account",
                 ),
                 SizedBox(height: 10),
-                Center(
-                  child: SizedBox(
-                    width: 300,
-                    height: 55,
-                    child: OutlinedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/login');
-                      },
-                      style: OutlinedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        side: BorderSide(color: AppColor.primary),
-                        shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                      ),
-                      child: Text(
-                        "Sign In",
-                        style: TextStyle(
-                          color: AppColor.primary,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                    ),
-                  ),
+                ButtonOutline(
+                  label: "Sign In",
                 ),
               ],
             )
