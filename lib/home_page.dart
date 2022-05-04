@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
                     height: 55,
                     child: TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/login');
+                        Navigator.pushNamed(context, '/sign_up');
                       },
                       style: ButtonStyle(
                         shape:
@@ -80,7 +80,7 @@ class HomePage extends StatelessWidget {
                     height: 55,
                     child: OutlinedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/sign_up');
+                        Navigator.pushNamed(context, '/login');
                       },
                       style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.white,
