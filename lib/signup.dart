@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:inquire_near/components/custom_button.dart';
+import 'package:inquire_near/components/text_field.dart';
 import 'package:inquire_near/themes/app_color.dart';
 import 'package:inquire_near/components/icon_container.dart';
 
@@ -52,97 +54,18 @@ class SignUpPage extends StatelessWidget {
               Column(
                 children: [
                   SizedBox(height: 30),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Full Name"),
-                      SizedBox(height: 5),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            border: Border.all(
-                              color: AppColor.secondary,
-                            )),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  inTextField(label: "Full Name"),
                   SizedBox(height: 15),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Email Address"),
-                      SizedBox(height: 5),
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            border: Border.all(
-                              color: AppColor.secondary,
-                            )),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  inTextField(label: "Email Address"),
                   SizedBox(height: 15),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Password"),
-                      SizedBox(height: 5),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            border: Border.all(
-                              color: AppColor.secondary,
-                            )),
-                        child: TextField(
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                          ),
-                        ),
-                      ),
-                    ],
+                  inTextField(
+                    label: "Password",
+                    isObscure: true,
                   ),
                 ],
               ),
               SizedBox(height: 50),
-              Center(
-                child: SizedBox(
-                  width: 250,
-                  height: 55,
-                  child: TextButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
-                    ),
-                    child: Text(
-                      "Create Account",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              ButtonFill(label: "Create Account"),
               SizedBox(height: 60),
             ],
           ),

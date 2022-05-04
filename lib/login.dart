@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:inquire_near/themes/app_color.dart';
+import 'package:inquire_near/components/custom_button.dart';
+import 'package:inquire_near/components/text_field.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -25,78 +27,16 @@ class LoginPage extends StatelessWidget {
                         ),
                   ),
                   SizedBox(height: 30),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Email Address"),
-                      SizedBox(height: 5),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            border: Border.all(
-                              color: AppColor.secondary,
-                            )),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  inTextField(label: "Email Address"),
                   SizedBox(height: 15),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Password"),
-                      SizedBox(height: 5),
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            border: Border.all(
-                              color: AppColor.secondary,
-                            )),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        "Forgot Password?",
-                        style: Theme.of(context).textTheme.headline4,
-                      ),
-                    ],
+                  inTextField(
+                    label: "Password",
+                    isObscure: true,
                   ),
                 ],
               ),
               SizedBox(height: 50),
-              Center(
-                child: SizedBox(
-                  width: 250,
-                  height: 55,
-                  child: TextButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
-                    ),
-                    child: Text(
-                      "Sign In",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              ButtonFill(label: "Sign In"),
               SizedBox(height: 60),
               Column(
                 children: [
