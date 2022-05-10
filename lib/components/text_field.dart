@@ -4,7 +4,14 @@ import 'package:inquire_near/themes/app_color.dart';
 class inTextField extends StatelessWidget {
   String label;
   bool isObscure;
-  inTextField({required this.label, this.isObscure = false});
+  IconData icon;
+  TextEditingController controller;
+
+  inTextField(
+      {required this.label,
+      this.isObscure = false,
+      required this.icon,
+      required this.controller});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,8 +27,10 @@ class inTextField extends StatelessWidget {
                 color: AppColor.secondary,
               )),
           child: TextField(
+            controller: controller,
             obscureText: isObscure,
             decoration: InputDecoration(
+              prefixIcon: Icon(icon),
               border: InputBorder.none,
             ),
           ),
