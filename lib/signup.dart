@@ -1,11 +1,43 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:inquire_near/components/custom_button.dart';
 import 'package:inquire_near/components/text_field.dart';
 import 'package:inquire_near/themes/app_color.dart';
 import 'package:inquire_near/components/icon_container.dart';
 
-class SignUpPage extends StatelessWidget {
+final FirebaseAuth _auth = FirebaseAuth.instance;
+
+class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  late bool _success;
+  late String? _userEmail;
+
+  void _register() async {
+    final User? user = (await _auth.createUserWithEmailAndPassword(
+            email: _emailController.text, password: _passwordController.text))
+        .user;
+
+    if (user != null) {
+      setState(() {
+        _success = true;
+        _userEmail = user.email;
+      });
+    } else {
+      setState(() {
+        _success = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +52,7 @@ class SignUpPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -30,11 +62,9 @@ class SignUpPage extends StatelessWidget {
                         ),
                   ),
                   SizedBox(height: 30),
-                  Center(
-                    child: Text(
-                      "Use your socials",
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
+                  Text(
+                    "Use your socials",
+                    style: TextStyle(fontWeight: FontWeight.w600),
                   ),
                   SizedBox(height: 20),
                   Row(
@@ -53,20 +83,45 @@ class SignUpPage extends StatelessWidget {
               ),
               Column(
                 children: [
-                  SizedBox(height: 30),
-                  inTextField(label: "Full Name"),
+                  SizedBox(height: 10),
+                  inTextField(
+                    label: "Full Name",
+                    icon: Icons.person,
+                    controller: _nameController,
+                  ),
                   SizedBox(height: 15),
-                  inTextField(label: "Email Address"),
+                  inTextField(
+                    label: "Email Address",
+                    icon: Icons.mail,
+                    controller: _emailController,
+                  ),
                   SizedBox(height: 15),
                   inTextField(
                     label: "Password",
+                    icon: Icons.lock,
                     isObscure: true,
+                    controller: _passwordController,
+                  ),
+                  SizedBox(height: 15),
+                  inTextField(
+                    label: "Confirm Password",
+                    icon: Icons.lock,
+                    isObscure: true,
+                    controller: _passwordController,
                   ),
                 ],
               ),
-              SizedBox(height: 50),
-              ButtonFill(label: "Create Account"),
-              SizedBox(height: 60),
+              SizedBox(height: 20),
+              ButtonFill(
+                label: "Create Account",
+                onTap: () async {
+                  _register();
+
+                  if (_success) {
+                    Navigator.pushNamed(context, '/dashboard');
+                  }
+                },
+              ),
             ],
           ),
         ),
