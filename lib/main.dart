@@ -7,8 +7,6 @@ import 'package:inquire_near/signup.dart';
 import 'package:inquire_near/home_page.dart';
 import 'package:inquire_near/themes/app_theme.dart';
 
-final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
