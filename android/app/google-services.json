@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "391228461023",
+    "project_id": "inquire-near",
+    "storage_bucket": "inquire-near.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391228461023:android:4f2391545425c62a88fe6a",
+        "android_client_info": {
+          "package_name": "com.example.inquire_near"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "391228461023-gqih0ddbrntf9jmq8klt9llu4ir1j7bi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSp0CPK6RT_8Tg885H-UccoX_E4fzkltE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "391228461023-gqih0ddbrntf9jmq8klt9llu4ir1j7bi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
