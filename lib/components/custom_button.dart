@@ -5,7 +5,9 @@ class ButtonOutline extends StatelessWidget {
   double width;
   double height;
   String label;
-  ButtonOutline({this.height = 300, this.width = 55, required this.label});
+  VoidCallback? onTap;
+  ButtonOutline(
+      {this.height = 300, this.width = 55, required this.label, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +16,7 @@ class ButtonOutline extends StatelessWidget {
         width: 300,
         height: 55,
         child: OutlinedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/login');
-          },
+          onPressed: onTap,
           style: OutlinedButton.styleFrom(
             backgroundColor: Colors.white,
             side: BorderSide(color: AppColor.primary),
@@ -40,7 +40,9 @@ class ButtonFill extends StatelessWidget {
   double width;
   double height;
   String label;
-  ButtonFill({this.height = 55, this.width = 300, required this.label});
+  VoidCallback? onTap;
+  ButtonFill(
+      {this.height = 55, this.width = 300, required this.label, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +51,7 @@ class ButtonFill extends StatelessWidget {
         width: width,
         height: height,
         child: TextButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/sign_up');
-          },
+          onPressed: onTap,
           style: ButtonStyle(
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
