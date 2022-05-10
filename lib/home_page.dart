@@ -49,11 +49,17 @@ class HomePage extends StatelessWidget {
             Column(
               children: [
                 ButtonFill(
-                  label: "Create Account",
+                  label: "Sign In",
+                  onTap: () {
+                    Navigator.pushNamed(context, '/login');
+                  },
                 ),
                 SizedBox(height: 10),
                 ButtonOutline(
-                  label: "Sign In",
+                  label: "Create Account",
+                  onTap: () {
+                    Navigator.pushNamed(context, 'sign_up');
+                  },
                 ),
               ],
             )
