@@ -1,9 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:inquire_near/components/custom_button.dart';
 import 'package:inquire_near/components/text_field.dart';
-import 'package:inquire_near/themes/app_color.dart';
 import 'package:inquire_near/components/icon_container.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -20,18 +18,18 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   late bool _success;
-  late String? _userEmail;
 
-  void _register() async {
+  Future _register() async {
     final User? user = (await _auth.createUserWithEmailAndPassword(
-            email: _emailController.text, password: _passwordController.text))
+            email: _emailController.text.trim(),
+            password: _passwordController.text.trim()))
         .user;
 
     if (user != null) {
       setState(() {
         _success = true;
-        _userEmail = user.email;
       });
+      Navigator.pushReplacementNamed(context, '/dashboard');
     } else {
       setState(() {
         _success = false;

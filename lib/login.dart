@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:inquire_near/home_page.dart';
 import 'package:inquire_near/themes/app_color.dart';
 import 'package:inquire_near/components/custom_button.dart';
 import 'package:inquire_near/components/text_field.dart';
@@ -20,24 +21,21 @@ class _LoginPageState extends State<LoginPage> {
   late bool _success;
   late String? _userEmail;
 
-  void _signIn() async {
+  Future _signIn() async {
     final User? user = (await _auth.signInWithEmailAndPassword(
-            email: _emailController.text, password: _passwordController.text))
+            email: _emailController.text.trim(),
+            password: _passwordController.text.trim()))
         .user;
 
     if (user != null) {
       setState(() {
         _success = true;
-        _userEmail = user.email;
       });
+      Navigator.pushReplacementNamed(context, '/dashboard');
     } else {
       setState(() {
         _success = false;
       });
-    }
-
-    if (_success) {
-      Navigator.pushNamed(context, '/dashboard');
     }
   }
 
