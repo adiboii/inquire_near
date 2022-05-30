@@ -3,13 +3,15 @@ import 'package:inquire_near/themes/app_color.dart';
 
 class inTextField extends StatelessWidget {
   String label;
+  String hint;
   bool isObscure;
   IconData icon;
   TextEditingController controller;
 
   inTextField(
-      {required this.label,
+      {this.label = '',
       this.isObscure = false,
+      this.hint = '',
       required this.icon,
       required this.controller});
   @override
@@ -32,6 +34,7 @@ class inTextField extends StatelessWidget {
             decoration: InputDecoration(
               prefixIcon: Icon(icon),
               border: InputBorder.none,
+              hintText: hint,
             ),
           ),
         ),
