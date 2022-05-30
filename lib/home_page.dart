@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:inquire_near/themes/app_color.dart';
 import 'package:inquire_near/components/custom_button.dart';
@@ -58,7 +60,7 @@ class HomePage extends StatelessWidget {
                 ButtonOutline(
                   label: "Create Account",
                   onTap: () {
-                    Navigator.pushNamed(context, 'sign_up');
+                    Navigator.pushNamed(context, '/sign_up');
                   },
                 ),
               ],
