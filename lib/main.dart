@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:inquire_near/dashboard.dart';
 import 'package:inquire_near/login.dart';
+import 'package:inquire_near/profile.dart';
 import 'package:inquire_near/signup.dart';
 import 'package:inquire_near/home_page.dart';
 import 'package:inquire_near/themes/app_theme.dart';
@@ -27,6 +28,7 @@ class InquireNear extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/sign_up': (context) => SignUpPage(),
         '/dashboard': (context) => Dashboard(),
+        '/profile': (context) => Profile(),
       },
     );
   }
