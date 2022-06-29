@@ -40,9 +40,16 @@ class ButtonFill extends StatelessWidget {
   double width;
   double height;
   String label;
+  Color color;
+  Color textColor;
   VoidCallback? onTap;
   ButtonFill(
-      {this.height = 55, this.width = 300, required this.label, this.onTap});
+      {this.height = 55,
+      this.width = 300,
+      required this.label,
+      this.onTap,
+      this.color = const Color(0xff007AFF),
+      this.textColor = Colors.white});
 
   @override
   Widget build(BuildContext context) {
@@ -58,11 +65,12 @@ class ButtonFill extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
             ),
+            backgroundColor: MaterialStateProperty.all<Color>(color),
           ),
           child: Text(
             label,
             style: TextStyle(
-              color: Colors.white,
+              color: textColor,
               fontWeight: FontWeight.w800,
             ),
           ),

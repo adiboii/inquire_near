@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:inquire_near/themes/app_color.dart';
 
 class inTextField extends StatelessWidget {
@@ -7,11 +8,12 @@ class inTextField extends StatelessWidget {
   bool isObscure;
   IconData icon;
   TextEditingController controller;
-
+  TextInputType type;
   inTextField(
       {this.label = '',
       this.isObscure = false,
       this.hint = '',
+      this.type = TextInputType.text,
       required this.icon,
       required this.controller});
   @override
@@ -31,6 +33,7 @@ class inTextField extends StatelessWidget {
           child: TextField(
             controller: controller,
             obscureText: isObscure,
+            keyboardType: type,
             decoration: InputDecoration(
               prefixIcon: Icon(icon),
               border: InputBorder.none,
