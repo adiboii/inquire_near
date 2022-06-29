@@ -19,7 +19,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _nameController = TextEditingController();
   late bool _success;
 
-  Future _register() async {
+  Future _signUp() async {
     final User? user = (await _auth.createUserWithEmailAndPassword(
             email: _emailController.text.trim(),
             password: _passwordController.text.trim()))
@@ -29,9 +29,10 @@ class _SignUpPageState extends State<SignUpPage> {
       setState(() {
         _success = true;
       });
-      Navigator.pushReplacementNamed(context, '/dashboard');
+      Navigator.pushReplacementNamed(context, '/dashboard_inquiree');
     } else {
       setState(() {
+        print("erorr");
         _success = false;
       });
     }
@@ -113,7 +114,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ButtonFill(
                 label: "Create Account",
                 onTap: () async {
-                  _register();
+                  _signUp();
 
                   if (_success) {
                     Navigator.pushNamed(context, '/dashboard');

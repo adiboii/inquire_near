@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   late bool _success;
   late String? _userEmail;
 
-  Future _signIn() async {
+  Future _firebaseLogin() async {
     final User? user = (await _auth.signInWithEmailAndPassword(
             email: _emailController.text.trim(),
             password: _passwordController.text.trim()))
@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         _success = true;
       });
-      Navigator.pushReplacementNamed(context, '/dashboard');
+      Navigator.pushReplacementNamed(context, '/dashboard_inquiree');
     } else {
       setState(() {
         _success = false;
@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 50),
               ButtonFill(
                 label: "Sign In",
-                onTap: _signIn,
+                onTap: _firebaseLogin,
               ),
               SizedBox(height: 60),
               Column(
