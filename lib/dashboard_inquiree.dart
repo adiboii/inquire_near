@@ -4,16 +4,18 @@ import 'package:inquire_near/components/text_field.dart';
 import 'package:inquire_near/themes/app_color.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-class Dashboard extends StatefulWidget {
-  const Dashboard({Key? key}) : super(key: key);
+import 'components/Card.dart';
+
+class DashboardInquiree extends StatefulWidget {
+  const DashboardInquiree({Key? key}) : super(key: key);
 
   @override
-  State<Dashboard> createState() => _DashboardState();
+  State<DashboardInquiree> createState() => _DashboardInquireeState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class _DashboardInquireeState extends State<DashboardInquiree> {
   final TextEditingController _searchController = TextEditingController();
-  int? type = 1;
+  int? type = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +65,8 @@ class _DashboardState extends State<Dashboard> {
                             setState(() {
                               type = index;
                             });
+                            Navigator.pushReplacementNamed(
+                                context, '/dashboard_inquirer');
                           },
                         ),
                       ],
@@ -138,67 +142,12 @@ class _DashboardState extends State<Dashboard> {
                           ?.copyWith(fontSize: 15),
                     ),
                     SizedBox(height: 10),
-                    Container(
-                      width: width * 0.90,
-                      height: height * 0.27,
-                      padding: EdgeInsets.fromLTRB(15, 0, 15, 20),
-                      decoration: BoxDecoration(
-                        color: AppColor.primary,
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    "Melanie Gabutan",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline3
-                                        ?.copyWith(color: Colors.white),
-                                  ),
-                                  Text(
-                                    "•••• •••• •••• 2457",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline3
-                                        ?.copyWith(
-                                            color: Colors.white, fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Total Balance",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline3
-                                        ?.copyWith(
-                                            color: Colors.white, fontSize: 12),
-                                  ),
-                                  Text(
-                                    "₱455.20",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline3
-                                        ?.copyWith(
-                                            color: Colors.white, fontSize: 25),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/card_page');
+                      },
+                      child: inCard(height: height, width: width),
+                    )
                   ],
                 ),
               ),
