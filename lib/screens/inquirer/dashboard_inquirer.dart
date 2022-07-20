@@ -18,7 +18,8 @@ class _DashboardInquirerState extends State<DashboardInquirer> {
 
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser!;
+    //TODO: finish user model
+    //final user = FirebaseAuth.instance.currentUser!;
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(

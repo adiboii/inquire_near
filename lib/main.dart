@@ -1,35 +1,44 @@
+import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:inquire_near/card_page.dart';
-import 'package:inquire_near/confirm_top-up.dart';
-import 'package:inquire_near/dashboard_inquiree.dart';
-import 'package:inquire_near/dashboard_inquirer.dart';
-import 'package:inquire_near/edit_profile.dart';
-import 'package:inquire_near/inquiree_request.dart';
-import 'package:inquire_near/login.dart';
-import 'package:inquire_near/profile.dart';
-import 'package:inquire_near/signup.dart';
-import 'package:inquire_near/home_page.dart';
+import 'package:inquire_near/screens/card_page.dart';
+import 'package:inquire_near/screens/confirm_top-up.dart';
+import 'package:inquire_near/screens/inquiree/dashboard_inquiree.dart';
+import 'package:inquire_near/screens/inquirer/dashboard_inquirer.dart';
+import 'package:inquire_near/screens/edit_profile.dart';
+import 'package:inquire_near/screens/home_page.dart';
+import 'package:inquire_near/screens/inquiree_request.dart';
+import 'package:inquire_near/screens/login.dart';
+import 'package:inquire_near/screens/onboarding.dart';
+import 'package:inquire_near/screens/profile.dart';
+import 'package:inquire_near/screens/signup.dart';
+import 'package:inquire_near/screens/top-up.dart';
 import 'package:inquire_near/themes/app_theme.dart';
-import 'package:inquire_near/top-up.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  final prefs = await SharedPreferences.getInstance();
+  final showHome = prefs.getBool('showHome') ?? false;
+
   await Firebase.initializeApp();
-  runApp(InquireNear());
+  runApp(InquireNear(showHome: showHome));
 }
 
 class InquireNear extends StatelessWidget {
-  const InquireNear({Key? key}) : super(key: key);
+  final bool showHome;
+
+  const InquireNear({Key? key, required this.showHome}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppThemeData,
-      initialRoute: '/home_page',
+      initialRoute: showHome ? '/onboarding' : '/home_page',
       routes: {
+        '/onboarding': (context) => OnboardingPage(),
         '/home_page': (context) => HomePage(),
         '/login': (context) => LoginPage(),
         '/sign_up': (context) => SignUpPage(),

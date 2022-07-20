@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:inquire_near/themes/app_color.dart';
 
-class inTextField extends StatelessWidget {
+class InTextField extends StatelessWidget {
   String label;
   String hint;
   bool isObscure;
   IconData icon;
   TextEditingController controller;
   TextInputType type;
-  inTextField(
+  InTextField(
       {this.label = '',
       this.isObscure = false,
       this.hint = '',

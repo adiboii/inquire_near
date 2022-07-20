@@ -83,26 +83,26 @@ class _SignUpPageState extends State<SignUpPage> {
               Column(
                 children: [
                   SizedBox(height: 10),
-                  inTextField(
+                  InTextField(
                     label: "Full Name",
                     icon: Icons.person,
                     controller: _nameController,
                   ),
                   SizedBox(height: 15),
-                  inTextField(
+                  InTextField(
                     label: "Email Address",
                     icon: Icons.mail,
                     controller: _emailController,
                   ),
                   SizedBox(height: 15),
-                  inTextField(
+                  InTextField(
                     label: "Password",
                     icon: Icons.lock,
                     isObscure: true,
                     controller: _passwordController,
                   ),
                   SizedBox(height: 15),
-                  inTextField(
+                  InTextField(
                     label: "Confirm Password",
                     icon: Icons.lock,
                     isObscure: true,

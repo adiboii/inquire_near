@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../themes/app_color.dart';
 
-class inListItem extends StatelessWidget {
+class InListItem extends StatelessWidget {
   Color color;
   String type;
   String amount;
 
-  inListItem({required this.color, required this.type, required this.amount});
+  InListItem({required this.color, required this.type, required this.amount});
   @override
   Widget build(BuildContext context) {
     return Container(

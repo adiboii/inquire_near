@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:inquire_near/home_page.dart';
 import 'package:inquire_near/themes/app_color.dart';
 import 'package:inquire_near/components/custom_button.dart';
 import 'package:inquire_near/components/text_field.dart';
@@ -10,7 +9,6 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
-
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -60,13 +58,13 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                   ),
                   SizedBox(height: 30),
-                  inTextField(
+                  InTextField(
                     label: "Email Address",
                     icon: Icons.mail,
                     controller: _emailController,
                   ),
                   SizedBox(height: 15),
-                  inTextField(
+                  InTextField(
                     label: "Password",
                     icon: Icons.lock,
                     isObscure: true,
@@ -77,7 +75,10 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 50),
               ButtonFill(
                 label: "Sign In",
-                onTap: _firebaseLogin,
+                onTap: () {
+                  //TODO: change back to sign in
+                  Navigator.pushNamed(context, '/dashboard_inquiree');
+                },
               ),
               SizedBox(height: 60),
               Column(

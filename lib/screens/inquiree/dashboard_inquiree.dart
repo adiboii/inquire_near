@@ -1,10 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:inquire_near/components/Card.dart';
 import 'package:inquire_near/components/text_field.dart';
 import 'package:inquire_near/themes/app_color.dart';
 import 'package:toggle_switch/toggle_switch.dart';
-
-import 'components/Card.dart';
 
 class DashboardInquiree extends StatefulWidget {
   const DashboardInquiree({Key? key}) : super(key: key);
@@ -19,7 +18,8 @@ class _DashboardInquireeState extends State<DashboardInquiree> {
 
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser!;
+    //TODO: finish users model
+    //final user = FirebaseAuth.instance.currentUser!;
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -76,7 +76,7 @@ class _DashboardInquireeState extends State<DashboardInquiree> {
                       "Welcome!\nNeed anything?",
                       style: Theme.of(context).textTheme.headline2,
                     ),
-                    inTextField(
+                    InTextField(
                         hint: 'Search for places',
                         icon: Icons.search,
                         controller: _searchController),

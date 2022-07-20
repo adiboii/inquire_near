@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:inquire_near/components/Card.dart';
 import 'package:inquire_near/components/custom_button.dart';
+import 'package:inquire_near/components/list_item.dart';
 import 'package:inquire_near/themes/app_color.dart';
-
-import 'components/list_item.dart';
 
 class CardPage extends StatefulWidget {
   const CardPage({Key? key}) : super(key: key);
@@ -75,32 +74,32 @@ class _CardPageState extends State<CardPage> {
                       child: ListView(
                         scrollDirection: Axis.vertical,
                         children: [
-                          inListItem(
+                          InListItem(
                               color: Colors.red,
                               type: "Payment",
                               amount: "- ₱25.00"),
                           SizedBox(height: 10),
-                          inListItem(
+                          InListItem(
                               color: Colors.green,
                               type: "Top-up",
                               amount: "+ ₱150.00"),
                           SizedBox(height: 10),
-                          inListItem(
+                          InListItem(
                               color: Colors.red,
                               type: "Payment",
                               amount: "- ₱25.00"),
                           SizedBox(height: 10),
-                          inListItem(
+                          InListItem(
                               color: Colors.green,
                               type: "Top-up",
                               amount: "+ ₱150.00"),
                           SizedBox(height: 10),
-                          inListItem(
+                          InListItem(
                               color: Colors.red,
                               type: "Payment",
                               amount: "- ₱25.00"),
                           SizedBox(height: 10),
-                          inListItem(
+                          InListItem(
                               color: Colors.green,
                               type: "Top-up",
                               amount: "+ ₱150.00"),

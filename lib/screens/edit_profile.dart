@@ -56,19 +56,19 @@ class EditProfile extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      inTextField(
+                      InTextField(
                         label: "Full Name",
                         icon: Icons.person,
                         controller: _nameController,
                       ),
                       SizedBox(height: 10),
-                      inTextField(
+                      InTextField(
                         label: "Email Address",
                         icon: Icons.mail,
                         controller: _emailController,
                       ),
                       SizedBox(height: 10),
-                      inTextField(
+                      InTextField(
                         label: "Password",
                         icon: Icons.lock,
                         isObscure: true,

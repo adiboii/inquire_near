@@ -68,7 +68,7 @@ class TopUp extends StatelessWidget {
                       "Enter amount you wish\nto add to your wallet",
                       style: Theme.of(context).textTheme.headline3,
                     ),
-                    inTextField(
+                    InTextField(
                       icon: Icons.php_outlined,
                       controller: _topUpValue,
                       hint: "0.00",

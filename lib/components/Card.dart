@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../themes/app_color.dart';
+import 'package:inquire_near/themes/app_color.dart';
 
 class inCard extends StatelessWidget {
   double width;
