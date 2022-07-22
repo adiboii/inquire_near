@@ -35,7 +35,7 @@ class _CardPageState extends State<CardPage> {
         padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
         child: Column(
           children: [
-            inCard(height: height, width: width),
+            InCard(height: height, width: width),
             SizedBox(height: 10),
             Row(
               children: [

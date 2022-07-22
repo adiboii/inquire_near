@@ -146,7 +146,7 @@ class _DashboardInquireeState extends State<DashboardInquiree> {
                       onTap: () {
                         Navigator.pushNamed(context, '/card_page');
                       },
-                      child: inCard(height: height, width: width),
+                      child: InCard(height: height, width: width),
                     )
                   ],
                 ),

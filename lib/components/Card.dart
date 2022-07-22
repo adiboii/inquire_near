@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:inquire_near/themes/app_color.dart';
 
-class inCard extends StatelessWidget {
+class InCard extends StatelessWidget {
   double width;
   double height;
 
-  inCard({required this.height, required this.width});
+  InCard({required this.height, required this.width});
 
   @override
   Widget build(BuildContext context) {
