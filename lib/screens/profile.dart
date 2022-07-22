@@ -4,6 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:inquire_near/components/custom_button.dart';
 import 'package:inquire_near/components/icon_label.dart';
+import 'package:inquire_near/services/auth.dart';
 import 'package:inquire_near/themes/app_color.dart';
 
 class Profile extends StatelessWidget {
@@ -11,10 +12,11 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future _logout() async {
-      await FirebaseAuth.instance.signOut();
-      Navigator.popUntil(context, (route) => route.isFirst);
-    }
+    final AuthService _auth = AuthService();
+    // Future _logout() async {
+    //   await FirebaseAuth.instance.signOut();
+    //   Navigator.popUntil(context, (route) => route.isFirst);
+    // }
 
     return Scaffold(
       appBar: AppBar(
@@ -87,7 +89,10 @@ class Profile extends StatelessWidget {
                   inLabel(
                     icon: Icons.exit_to_app,
                     label: "Sign Out",
-                    onTap: _logout,
+                    onTap: () async {
+                      await _auth.signOut().then((value) =>
+                          Navigator.pushReplacementNamed(context, '/wrapper'));
+                    },
                   ),
                 ],
               ),
